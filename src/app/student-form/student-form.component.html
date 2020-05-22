@@ -1,0 +1,109 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 mt-5">
+            <h1>Student Registration Form</h1>
+            <p>Fill out the form carefully for registration</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-8 mt-5">
+       
+            <form [formGroup]="studentform" (ngSubmit)="registarstudent(studentform)" >
+                <h3>Student Name</h3>
+                <mat-form-field  appearance="fill">
+                    <mat-label>First Name</mat-label>
+                    <input formControlName="firstName" matInput>
+                  </mat-form-field>  - 
+                <mat-form-field  appearance="fill">
+                    <mat-label>Middel Name</mat-label>
+                    <input formControlName="middelName" matInput>
+                  </mat-form-field> - 
+                <mat-form-field  appearance="fill">
+                    <mat-label>Last Name</mat-label>
+                    <input formControlName="lastName" matInput>
+                  </mat-form-field>
+                  <br>
+                  <h3>Birth Date</h3>
+                  <mat-form-field>
+                    <mat-label>Choose a date</mat-label>
+                    <input matInput formControlName="birthDate" [matDatepicker]="picker">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <div *ngIf="datetoggel">Date is invalid</div>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field><br>
+                  <h3>Gender</h3>
+                  <mat-form-field>
+                    <mat-label>Gender</mat-label>
+                    <mat-select formControlName="gender" >
+                      <mat-option  value="Male">
+                        Male
+                      </mat-option>
+                      <mat-option  value="Female">
+                        Female
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                  <br>
+                  <h3>Address</h3>
+                  <div formGroupName="address">
+                  <mat-form-field class="street" appearance="fill">
+                    <mat-label>Street Address</mat-label>
+                    <input  formControlName="street" matInput >
+                  </mat-form-field> <br>
+                  <mat-form-field class="city" appearance="fill">
+                    <mat-label>City</mat-label>
+                    <input formControlName="city" matInput>
+                  </mat-form-field>
+                  <mat-form-field class="state" appearance="fill">
+                    <mat-label>State</mat-label>
+                    <input formControlName="state" matInput>
+                  </mat-form-field>
+                  <mat-form-field class="zip" appearance="fill">
+                    <mat-label>Postal / Zip Code</mat-label>
+                    <input formControlName="zip" matInput>
+                  </mat-form-field>
+                </div>
+                <br>
+                <h3>Email</h3>
+                <mat-form-field  appearance="fill">
+                    <mat-label>email</mat-label>
+                    <input formControlName="email" matInput>
+                  </mat-form-field>
+                  <br>
+                <h3>Phone Number</h3>
+                <mat-form-field  appearance="fill">
+                    <mat-label>phoneNo</mat-label>
+                    <input formControlName="phoneNo" matInput>
+                  </mat-form-field>
+                  <br>
+                <h3>Company</h3>
+                <mat-form-field  appearance="fill">
+                    <mat-label>Company</mat-label>
+                    <input formControlName="company" matInput>
+                  </mat-form-field>
+                  <br>
+                <h3>Course</h3>
+                <mat-form-field>
+                    <mat-label>course</mat-label>
+                    <mat-select formControlName="course" >
+                      <mat-option  value="DAC">
+                        DAC
+                      </mat-option>
+                      <mat-option  value="DMC">
+                        DMC
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                  <br>
+                  <h3>Additional Comments</h3>
+                <mat-form-field class="street" appearance="fill">
+                    <textarea formControlName="additionalComment" matInput></textarea>
+                  </mat-form-field>
+                  <br>
+                  <button mat-raised-button [disabled]="!studentform.valid" color="accent">Submit</button>
+                  <br><br>
+            </form>
+        
+        </div>
+    </div>
+</div>

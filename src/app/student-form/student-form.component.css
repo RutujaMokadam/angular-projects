@@ -1,0 +1,9 @@
+.street{
+    display: inline !important;
+}
+.city{
+    margin-right: 2%;
+}
+.zip{
+    margin-left: 2%;
+}
